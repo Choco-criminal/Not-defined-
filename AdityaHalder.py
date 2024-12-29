@@ -776,16 +776,24 @@ async def stream_audio_or_video(client, message):
 
     else:
         if len(message.command) < 2:
-            buttons = InlineKeyboardMarkup(
-                [
-                    [
-                        InlineKeyboardButton(
-                            text="Close",
-                            callback_data="force_close",
-                        )
-                    ],
-                ]
-            )
+            from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+
+buttons = InlineKeyboardMarkup(
+    [
+        [
+            InlineKeyboardButton(text="04:41 ————————◉— 4:57", callback_data="close"),
+        ]
+        [
+            InlineKeyboardButton(text="▷", callback_data="play"),
+            InlineKeyboardButton(text="II", callback_data="pause"),
+            InlineKeyboardButton(text="↻", callback_data="repeat"),
+            InlineKeyboardButton(text="‣‣I", callback_data="skip"),
+        ],
+        [
+            InlineKeyboardButton(text="▢", callback_data="force_close"),
+        ]
+    ]
+        )
             return await aux.edit_text(
                 "**🥀 Give Me Some Query To\nPlay Audio Or Video❗...\n\nℹ️ Examples:\n≽ Audio: `/play satisfya`\n≽ Video: `/vplay satisfya`**",
                 reply_markup=buttons,
@@ -850,14 +858,20 @@ async def stream_audio_or_video(client, message):
         else:
             requested_by = user.title
     buttons = InlineKeyboardMarkup(
+    [
         [
-            [
-                InlineKeyboardButton(
-                    text="🗑️ Close",
-                    callback_data="force_close",
-                )
-            ],
+            InlineKeyboardButton(text="04:41 ————————◉— 4:57", callback_data="close"),
         ]
+        [
+            InlineKeyboardButton(text="▷", callback_data="play"),
+            InlineKeyboardButton(text="II", callback_data="pause"),
+            InlineKeyboardButton(text="↻", callback_data="repeat"),
+            InlineKeyboardButton(text="‣‣I", callback_data="skip"),
+        ],
+        [
+            InlineKeyboardButton(text="▢", callback_data="force_close"),
+        ]
+    ]
     )
     if stream_type == "Audio":
         stream_media = MediaStream(
