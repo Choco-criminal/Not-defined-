@@ -203,8 +203,8 @@ async def main():
         LOGGER.info(f"🚫 Assistant Error: {e}")
         sys.exit()
     try:
-        await app.join_chat("AdityaServer")
-        await app.join_chat("AdityaDiscus")
+        await app.join_chat("")
+        await app.join_chat("")
     except Exception:
         pass
     if LOG_GROUP_ID != 0:
@@ -221,7 +221,7 @@ async def main():
     LOGGER.info("✅ PyTgCalls Started.")
     await asyncio.sleep(1)
     LOGGER.info("✅ Sucessfully Hosted Your Bot !!")
-    LOGGER.info("✅ Now Do Visit: @AdityaServer !!")
+    LOGGER.info("✅ Now Do Visit: mausi kai ghar !!")
     await idle()
 
 
@@ -692,12 +692,7 @@ async def change_stream(chat_id):
 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {requested_by}"""
     buttons = InlineKeyboardMarkup(
         [
-            [
-                InlineKeyboardButton(
-                    text="🗑️ Close",
-                    callback_data="force_close",
-                )
-            ],
+            
         ]
     )
     return await bot.send_photo(chat_id, thumbnail, caption, reply_markup=buttons)
@@ -996,8 +991,8 @@ async def stream_audio_or_video(client, message):
                 caption = f"""** sᴛᴀʀᴛᴇᴅ sᴛʀᴇᴀᴍɪɴɢ ᴏɴ ᴠᴄ.**
 
 **ᴛɪᴛʟᴇ:** {title}
-** ᴅᴜʀᴀᴛɪᴏɴ:** {duration}
-** sᴛʀᴇᴀᴍ ᴛʏᴘᴇ:** {stream_type}
+**ᴅᴜʀᴀᴛɪᴏɴ:** {duration}
+**sᴛʀᴇᴀᴍ ᴛʏᴘᴇ:** {stream_type}
 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ:** {requested_by}"""
                 await bot.send_photo(chat_id, thumbnail, caption, reply_markup=buttons)
                 await stream_logger(
