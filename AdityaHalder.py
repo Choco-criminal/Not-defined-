@@ -791,25 +791,25 @@ async def stream_audio_or_video(client, message):
             from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 
 buttons = InlineKeyboardMarkup(
-        [
-            [
-             InlineKeyboardButton(text="04:41 ————————◉— 4:57", callback_data="close"),
-            ]
-            [
-             InlineKeyboardButton(text="▷", callback_data="play"),
-             InlineKeyboardButton(text="II", callback_data="pause"),
-             InlineKeyboardButton(text="↻", callback_data="repeat"),
-             InlineKeyboardButton(text="‣‣I", callback_data="skip"),
-            ],
-            [
-             InlineKeyboardButton(text="▢", callback_data="force_close"),
-            ],
-        ]
-)
+                [
+                    [
+                     InlineKeyboardButton(text="04:41 ————————◉— 4:57", callback_data="close"),
+                   ]
+                   [
+                    InlineKeyboardButton(text="▷", callback_data="play"),
+                    InlineKeyboardButton(text="II", callback_data="pause"),
+                    InlineKeyboardButton(text="↻", callback_data="repeat"),
+                    InlineKeyboardButton(text="‣‣I", callback_data="skip"),
+                   ],
+                   [
+                    InlineKeyboardButton(text="▢", callback_data="force_close"),
+                   ],
+                ]
+            )
             return await aux.edit_text(
                 "**🥀 Give Me Some Query To\nPlay Audio Or Video❗...\n\nℹ️ Examples:\n≽ Audio: `/play satisfya`\n≽ Video: `/vplay satisfya`**",
                 reply_markup=buttons,
-            )
+)
         query = message.text.split(None, 1)[1]
         if "https://" in query:
             base = r"(?:https?:)?(?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube(?:\-nocookie)?\.(?:[A-Za-z]{2,4}|[A-Za-z]{2,3}\.[A-Za-z]{2})\/)?(?:shorts\/|live\/)?(?:watch|embed\/|vi?\/)*(?:\?[\w=&]*vi?=)?([^#&\?\/]{11}).*$"
